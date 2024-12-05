@@ -1,0 +1,113 @@
+{
+  "microservices": [
+    {
+      "name": "SpecSync.SoftwareRequirements.Api",
+      "boundedContextName": "SoftwareRequirements",
+      "kind": "Api",
+      "productName": "SpecSync"
+    }
+  ],
+  "productName": "SpecSync",
+  "boundedContexts": [
+    {
+      "name": "SoftwareRequirements",
+      "aggregates": [
+        {
+          "name": "SoftwareRequirement",
+          "properties": [
+            {
+              "name": "SoftwareRequirementId",
+              "kind": "string",
+              "propertyKindReference": null,
+              "key": true
+            },
+            {
+              "name": "ParentSoftwareRequirementId",
+              "kind": "string",
+              "propertyKindReference": null
+            },
+            {
+              "name": "Description",
+              "kind": "string"
+            },
+            {
+              "name": "CanImplement",
+              "kind": "bool"
+            },
+            {
+              "name": "CanTest",
+              "kind": "bool"
+            },
+            {
+              "name": "Comments",
+              "kind": "List",
+              "propertyKindReference": "Comment"
+            }
+          ],
+          "commands": [
+            {
+              "name": "CreateSoftwareRequirement",
+              "kind": "Create",
+              "aggregate": null,
+              "productName": "SpecSync"
+            },
+            {
+              "name": "UpdateSoftwareRequirement",
+              "kind": "Update",
+              "aggregate": null,
+              "productName": "SpecSync"
+            },
+            {
+              "name": "DeleteSoftwareRequirement",
+              "kind": "Delete",
+              "aggregate": null,
+              "productName": "SpecSync"
+            }
+          ],
+          "queries": [
+            {
+              "name": "GetSoftwareRequirements",
+              "kind": "Get",
+              "aggregate": null,
+              "productName": null
+            },
+            {
+              "name": "GetSoftwareRequirementById",
+              "kind": "GetById",
+              "aggregate": null,
+              "productName": null
+            }
+          ],
+          "entities": [
+            {
+              "name": "Comment",
+              "properties": [
+                {
+                  "name": "Body",
+                  "kind": "string"
+                },
+                {
+                  "name": "Author",
+                  "kind": "string"
+                },
+                {
+                  "name": "Resolved",
+                  "kind": "bool"
+                },
+                {
+                  "name": "Comments",
+                  "kind": "List",
+                  "propertyKindReference": "Comment"
+                }
+              ]
+            }
+          ],
+          "boundedContext": null
+        }
+      ],
+      "handles": [],
+      "productName": "SpecSync"
+    }
+  ],
+  "messages": []
+}
